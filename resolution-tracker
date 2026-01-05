@@ -1,0 +1,23 @@
+def resolution_streak(days):
+    day_count = len(days)
+    streak_active = False
+    streak_count = 0
+    day_num = 0
+    for day in days:
+        day_num += 1
+        steps = day[0]
+        screen_time = day[1]
+        pages_read = day[2]
+        if steps >= 10000 and screen_time <= 120 and pages_read >= 5:
+            streak_active = True
+            if streak_active:
+                streak_count += 1
+        else:
+            streak_active = False
+            break
+    if streak_active:
+        phrase = f"Resolution on track: {streak_count} day streak."
+    else:
+        phrase = f"Resolution failed on day {day_num}: {streak_count} day streak."
+
+    return phrase
