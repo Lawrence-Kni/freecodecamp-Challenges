@@ -1,0 +1,14 @@
+def tire_status(pressures_psi, range_bar):
+    bar = 14.5038
+    pressures = []
+    min_bar = bar * range_bar[0]
+    max_bar = bar * range_bar[1]
+    for pressure in pressures_psi:
+        if pressure < min_bar:
+            pressures.append("Low")
+            continue
+        elif pressure > max_bar:
+            pressures.append("High")
+        else:
+            pressures.append("Good")
+    print(pressures)
